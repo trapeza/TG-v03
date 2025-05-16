@@ -17,6 +17,11 @@ export async function generateStaticParams() {
 
 import TokenProfileClientPage from "./TokenProfileClientPage"
 
-export default function TokenProfilePage({ params }: { params: { symbol: string } }) {
-  return <TokenProfileClientPage params={params} />
+export default function TokenProfilePage({ params }: { params?: { symbol?: string } }) {
+  // Ensure params and params.symbol are defined before passing to the client component
+  const safeParams = {
+    symbol: params?.symbol || "unknown",
+  }
+
+  return <TokenProfileClientPage params={safeParams} />
 }

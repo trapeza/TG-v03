@@ -36,7 +36,7 @@ import TokenTransactions from "@/components/token/token-transactions"
 import TokenSocial from "@/components/token/token-social"
 import TokenCode from "@/components/token/token-code"
 
-export default function TokenProfileClientPage({ params }: { params: { symbol: string } }) {
+export default function TokenProfileClientPage({ params }: { params: { symbol?: string } }) {
   const [copied, setCopied] = useState(false)
   const [isWatching, setIsWatching] = useState(false)
   const [voted, setVoted] = useState<"gem" | "dirt" | null>(null)
@@ -44,7 +44,7 @@ export default function TokenProfileClientPage({ params }: { params: { symbol: s
   // This would normally come from an API call using the symbol parameter
   const token = {
     name: "Uniswap",
-    symbol: params.symbol.toUpperCase(),
+    symbol: params?.symbol ? params.symbol.toUpperCase() : "UNKNOWN",
     logo: "/uni-abstract.png", // Updated to use a visible logo
     blockchain: "ethereum", // Added blockchain info
     address: "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
@@ -151,11 +151,7 @@ export default function TokenProfileClientPage({ params }: { params: { symbol: s
                       )}
                       {token.blockchain === "bnb" && (
                         <div className="h-5 w-5 rounded-full overflow-hidden bg-[#F3BA2F]">
-                          <img
-                            src="/bnb-chain-logo.png"
-                            alt="BNB Chain"
-                            className="object-cover w-full h-full"
-                          />
+                          <img src="/bnb-chain-logo.png" alt="BNB Chain" className="object-cover w-full h-full" />
                         </div>
                       )}
                     </div>
