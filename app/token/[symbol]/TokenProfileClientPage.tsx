@@ -21,6 +21,7 @@ import {
   MessageCircle,
   History,
   Code,
+  Diamond,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -38,12 +39,14 @@ import TokenCode from "@/components/token/token-code"
 export default function TokenProfileClientPage({ params }: { params: { symbol: string } }) {
   const [copied, setCopied] = useState(false)
   const [isWatching, setIsWatching] = useState(false)
+  const [voted, setVoted] = useState<"gem" | "dirt" | null>(null)
 
   // This would normally come from an API call using the symbol parameter
   const token = {
     name: "Uniswap",
     symbol: params.symbol.toUpperCase(),
-    logo: "/placeholder-y187b.png",
+    logo: "/uni-abstract.png", // Updated to use a visible logo
+    blockchain: "ethereum", // Added blockchain info
     address: "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
     price: 7.82,
     change24h: 2.3,
@@ -76,6 +79,11 @@ export default function TokenProfileClientPage({ params }: { params: { symbol: s
     maxSupply: 1000,
     rank: 18,
     score: 8.4,
+    sentiment: {
+      gems: 842,
+      dirt: 124,
+      total: 966,
+    },
   }
 
   const handleCopy = () => {
@@ -90,6 +98,22 @@ export default function TokenProfileClientPage({ params }: { params: { symbol: s
 
   const formatNumber = (num: number) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+  const handleGemVote = () => {
+    if (voted === "gem") {
+      setVoted(null)
+    } else {
+      setVoted("gem")
+    }
+  }
+
+  const handleDirtVote = () => {
+    if (voted === "dirt") {
+      setVoted(null)
+    } else {
+      setVoted("dirt")
+    }
   }
 
   return (
@@ -114,9 +138,26 @@ export default function TokenProfileClientPage({ params }: { params: { symbol: s
                   <div>
                     <div className="flex items-center gap-2">
                       <h1 className="text-2xl font-bold">{token.name}</h1>
-                      <Badge variant="outline" className="text-xs font-normal">
-                        #{token.rank}
-                      </Badge>
+                      {/* Removed rank number */}
+                      {token.blockchain === "ethereum" && (
+                        <div className="h-5 w-5 rounded-full overflow-hidden bg-[#627EEA]">
+                          <img src="/ethereum-logo.png" alt="Ethereum" className="object-cover w-full h-full" />
+                        </div>
+                      )}
+                      {token.blockchain === "solana" && (
+                        <div className="h-5 w-5 rounded-full overflow-hidden bg-[#14F195]">
+                          <img src="/solana-logo.png" alt="Solana" className="object-cover w-full h-full" />
+                        </div>
+                      )}
+                      {token.blockchain === "bnb" && (
+                        <div className="h-5 w-5 rounded-full overflow-hidden bg-[#F3BA2F]">
+                          <img
+                            src="/bnb-chain-logo.png"
+                            alt="BNB Chain"
+                            className="object-cover w-full h-full"
+                          />
+                        </div>
+                      )}
                     </div>
                     <div className="flex items-center gap-2">
                       <p className="text-muted-foreground">${token.symbol}</p>
@@ -179,6 +220,82 @@ export default function TokenProfileClientPage({ params }: { params: { symbol: s
                         {((token.circulatingSupply / token.maxSupply) * 100).toFixed(0)}%
                       </span>
                     </div>
+                  </div>
+                </div>
+
+                {/* Gem hunters sentiment section */}
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4 pt-2 border-t border-deep-indigo/30">
+                  <div>
+                    <p className="text-sm font-medium">Gem Hunters Sentiment</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <div className="h-2 flex rounded-full overflow-hidden w-32">
+                        <div
+                          className="bg-bright-cyan"
+                          style={{ width: `${(token.sentiment.gems / token.sentiment.total) * 100}%` }}
+                        ></div>
+                        <div
+                          className="bg-destructive"
+                          style={{ width: `${(token.sentiment.dirt / token.sentiment.total) * 100}%` }}
+                        ></div>
+                      </div>
+                      <span className="text-xs">
+                        {((token.sentiment.gems / token.sentiment.total) * 100).toFixed(0)}% Gem
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant={voted === "gem" ? "default" : "outline"}
+                      size="sm"
+                      onClick={handleGemVote}
+                      className={voted === "gem" ? "bg-bright-cyan text-background hover:bg-bright-cyan/90" : ""}
+                    >
+                      <Diamond className="h-4 w-4 mr-1" />
+                      Gem ({token.sentiment.gems + (voted === "gem" ? 1 : 0)})
+                    </Button>
+                    <Button
+                      variant={voted === "dirt" ? "default" : "outline"}
+                      size="sm"
+                      onClick={handleDirtVote}
+                      className={voted === "dirt" ? "bg-destructive text-background hover:bg-destructive/90" : ""}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-1"
+                      >
+                        <path d="M2 22a5 5 0 0 1 5-5h14a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H9a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h13"></path>
+                      </svg>
+                      Dirt ({token.sentiment.dirt + (voted === "dirt" ? 1 : 0)})
+                    </Button>
+
+                    <Button variant="outline" size="sm" className="gradient-button ml-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-1"
+                      >
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                      </svg>
+                      Claim Token Profile
+                    </Button>
                   </div>
                 </div>
 
