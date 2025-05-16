@@ -27,6 +27,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import TokenPriceChart from "@/components/token/token-price-chart"
 import TokenMetricsTable from "@/components/token/token-metrics-table"
 import LatestPostsList from "@/components/home/latest-posts-list"
@@ -34,7 +35,6 @@ import TokenHolders from "@/components/token/token-holders"
 import TokenTransactions from "@/components/token/token-transactions"
 import TokenSocial from "@/components/token/token-social"
 import TokenCode from "@/components/token/token-code"
-import { AvatarImage } from "@/components/ui/avatar"
 
 export default function TokenProfilePage({ params }: { params: { symbol: string } }) {
   const [copied, setCopied] = useState(false)
@@ -101,9 +101,10 @@ export default function TokenProfilePage({ params }: { params: { symbol: string 
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-shrink-0">
-                <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-full overflow-hidden bg-near-black">
-                  <AvatarImage src="/majestic-dragon.png" alt="User" />
-                </div>
+                <Avatar className="h-16 w-16 md:h-20 md:w-20">
+                  <AvatarImage src={token.logo || "/placeholder.svg"} alt={`${token.name} logo`} />
+                  <AvatarFallback>{token.symbol.charAt(0)}</AvatarFallback>
+                </Avatar>
               </div>
 
               <div className="flex-1 space-y-4">

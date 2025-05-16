@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { ThumbsUp, Repeat } from "lucide-react"
+import Link from "next/link"
 
 const posts = [
   {
@@ -115,6 +116,20 @@ export default function LatestPostsList() {
     }
   }
 
+  const formatContent = (content: string) => {
+    return content.split(" ").map((word, index) => {
+      if (word.startsWith("$") && word.length > 1) {
+        const symbol = word.substring(1)
+        return (
+          <Link key={index} href={`/token/${symbol.toLowerCase()}`} className="text-bright-cyan hover:underline">
+            ${symbol}
+          </Link>
+        )
+      }
+      return word + " "
+    })
+  }
+
   return (
     <div className="space-y-3 overflow-auto max-h-[300px] text-xs">
       {posts.map((post) => (
@@ -138,7 +153,7 @@ export default function LatestPostsList() {
                 )}
                 <span className="text-xs text-muted-foreground ml-auto">{post.timestamp}</span>
               </div>
-              <p className="text-xs mt-1">{post.content}</p>
+              <p className="text-xs mt-1">{formatContent(post.content)}</p>
               <div className="flex items-center gap-3 mt-1">
                 <Button variant="ghost" size="sm" className="h-6 px-1 text-xs" onClick={() => handleLike(post.id)}>
                   <ThumbsUp className={`h-3 w-3 mr-1 ${likedPosts.includes(post.id) ? "text-primary-green" : ""}`} />

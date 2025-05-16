@@ -37,7 +37,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative h-8 w-8 sm:h-10 sm:w-10">
               <Image
-                src="/abstract-geometric-tg.png"
+                src="/images/TG-logo-v02.png"
                 alt="TokenGems Logo"
                 width={40}
                 height={40}
@@ -53,7 +53,7 @@ export default function Navbar() {
             onClick={() => setIsSearchOpen(true)}
           >
             <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-            <span className="text-muted-foreground">Search for tokens, categories, pools and users</span>
+            <span className="text-muted-foreground">Search tokens, pools, categories, users</span>
           </div>
         </div>
 
