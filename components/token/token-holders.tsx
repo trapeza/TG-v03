@@ -195,7 +195,7 @@ export default function TokenHolders({ token }: TokenHoldersProps) {
           </CardHeader>
           <CardContent>
             <div className="w-full h-[200px] bg-near-black/30 rounded-md flex items-center justify-center">
-              <p className="text-muted-foreground">Holder distribution chart placeholder</p>
+              <img src="/placeholder.svg" alt="Placeholder" className="w-full h-full object-cover" />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
               <div>

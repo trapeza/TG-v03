@@ -27,7 +27,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import TokenPriceChart from "@/components/token/token-price-chart"
 import TokenMetricsTable from "@/components/token/token-metrics-table"
 import LatestPostsList from "@/components/home/latest-posts-list"
@@ -101,10 +100,13 @@ export default function TokenProfilePage({ params }: { params: { symbol: string 
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-shrink-0">
-                <Avatar className="h-16 w-16 md:h-20 md:w-20">
-                  <AvatarImage src={token.logo || "/placeholder.svg"} alt={`${token.name} logo`} />
-                  <AvatarFallback>{token.symbol.charAt(0)}</AvatarFallback>
-                </Avatar>
+                <div className="h-16 w-16 md:h-20 md:w-20 rounded-full overflow-hidden bg-deep-indigo/30">
+                  <img
+                    src={token.logo || "/placeholder.svg"}
+                    alt={`${token.name} logo`}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               </div>
 
               <div className="flex-1 space-y-4">

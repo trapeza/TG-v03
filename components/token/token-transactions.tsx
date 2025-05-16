@@ -183,7 +183,7 @@ export default function TokenTransactions({ token }: TokenTransactionsProps) {
           </CardHeader>
           <CardContent>
             <div className="w-full h-[200px] bg-near-black/30 rounded-md flex items-center justify-center">
-              <p className="text-muted-foreground">Transaction volume chart placeholder</p>
+              <img src="/placeholder.svg" alt="Placeholder" className="w-full h-full object-cover" />
             </div>
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div>
@@ -207,7 +207,7 @@ export default function TokenTransactions({ token }: TokenTransactionsProps) {
               <div className="space-y-4">
                 <h3 className="text-sm font-medium">Transaction Types</h3>
                 <div className="w-full h-[150px] bg-near-black/30 rounded-md flex items-center justify-center">
-                  <p className="text-muted-foreground">Transaction types chart placeholder</p>
+                  <img src="/placeholder.svg" alt="Placeholder" className="w-full h-full object-cover" />
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-center text-xs">
                   <div className="p-2 bg-bright-cyan/10 rounded-md">
@@ -227,7 +227,7 @@ export default function TokenTransactions({ token }: TokenTransactionsProps) {
               <div className="space-y-4">
                 <h3 className="text-sm font-medium">Exchange Distribution</h3>
                 <div className="w-full h-[150px] bg-near-black/30 rounded-md flex items-center justify-center">
-                  <p className="text-muted-foreground">Exchange distribution chart placeholder</p>
+                  <img src="/placeholder.svg" alt="Placeholder" className="w-full h-full object-cover" />
                 </div>
                 <div className="grid grid-cols-4 gap-2 text-center text-xs">
                   <div className="p-2 bg-near-black/30 rounded-md">

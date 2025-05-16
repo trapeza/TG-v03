@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { ThumbsUp, Repeat } from "lucide-react"
 import Link from "next/link"
@@ -135,10 +134,13 @@ export default function LatestPostsList() {
       {posts.map((post) => (
         <div key={post.id} className="border-b border-border pb-3 last:border-0 last:pb-0">
           <div className="flex items-start gap-2">
-            <Avatar className="h-6 w-6">
-              <AvatarImage src={post.user.avatar || "/placeholder.svg"} alt={post.user.name} />
-              <AvatarFallback>{post.user.name.charAt(0)}</AvatarFallback>
-            </Avatar>
+            <div className="h-6 w-6 rounded-full overflow-hidden bg-deep-indigo/30">
+              <img
+                src={post.user.avatar || "/placeholder.svg"}
+                alt={post.user.name}
+                className="object-cover w-full h-full"
+              />
+            </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1">
                 <span className="font-medium truncate">{post.user.name}</span>

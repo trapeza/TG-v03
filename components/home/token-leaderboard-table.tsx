@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ArrowUpDown } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 const tokens = [
   {
@@ -254,12 +253,10 @@ export default function TokenLeaderboardTable() {
               <TableCell className="py-1.5 px-1">
                 <div className="flex items-center gap-2">
                   <div className="relative h-5 w-5 rounded-full overflow-hidden bg-deep-indigo/30">
-                    <Image
+                    <img
                       src={token.logo || "/placeholder.svg"}
                       alt={`${token.name} logo`}
-                      width={20}
-                      height={20}
-                      className="object-cover"
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <div className="flex flex-col">

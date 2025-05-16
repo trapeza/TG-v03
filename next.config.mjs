@@ -7,15 +7,17 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['v0.blob.com'],
+    unoptimized: true,
+    domains: ['v0.blob.com', 'localhost', 'vercel.app'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
-    unoptimized: true,
   },
+  // Ensure output is static for better compatibility
+  output: 'export',
 };
 
 export default nextConfig;

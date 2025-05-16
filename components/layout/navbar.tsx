@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -36,14 +35,7 @@ export default function Navbar() {
         <div className="flex items-center gap-6 flex-1">
           <Link href="/" className="flex items-center gap-2">
             <div className="relative h-8 w-8 sm:h-10 sm:w-10">
-              <Image
-                src="/images/TG-logo-v02.png"
-                alt="TokenGems Logo"
-                width={40}
-                height={40}
-                className="object-contain"
-                priority
-              />
+              <img src="/images/TG-logo-v02.png" alt="TokenGems Logo" className="object-contain w-full h-full" />
             </div>
             <span className="text-xl font-bold hidden sm:inline-block text-off-white">TokenGems</span>
           </Link>

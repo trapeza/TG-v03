@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ThumbsUp, MessageSquare, Repeat, ExternalLink, Twitter, Globe, MessageCircle } from "lucide-react"
 import LatestPostsList from "@/components/home/latest-posts-list"
 
@@ -227,13 +226,13 @@ export default function TokenSocial({ token }: TokenSocialProps) {
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="border-b border-deep-indigo/30 pb-4 last:border-0 last:pb-0">
                   <div className="flex gap-3">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage
+                    <div className="h-8 w-8 rounded-full overflow-hidden bg-deep-indigo/30">
+                      <img
                         src={`/placeholder-9kla2.png?height=100&width=100&query=dragon+${i}`}
                         alt="User"
+                        className="object-cover w-full h-full"
                       />
-                      <AvatarFallback>U{i}</AvatarFallback>
-                    </Avatar>
+                    </div>
                     <div className="flex-1">
                       <div className="flex items-center">
                         <span className="font-medium">Crypto User {i}</span>
@@ -272,13 +271,13 @@ export default function TokenSocial({ token }: TokenSocialProps) {
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="border-b border-deep-indigo/30 pb-4 last:border-0 last:pb-0">
                   <div className="flex gap-3">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage
+                    <div className="h-8 w-8 rounded-full overflow-hidden bg-deep-indigo/30">
+                      <img
                         src={`/placeholder-9kla2.png?height=100&width=100&query=dragon+${(i % 5) + 1}`}
                         alt="User"
+                        className="object-cover w-full h-full"
                       />
-                      <AvatarFallback>T{i}</AvatarFallback>
-                    </Avatar>
+                    </div>
                     <div className="flex-1">
                       <div className="flex items-center">
                         <span className="font-medium">TG User {i}</span>
