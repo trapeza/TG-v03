@@ -10,7 +10,7 @@ const posts = [
     id: 1,
     user: {
       name: "0xDragon",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/majestic-dragon.png",
       rank: "ruby",
     },
     content: "$UNI showing strong support at $7.50. Looking for a breakout above $8 in the next few days.",
@@ -24,7 +24,7 @@ const posts = [
     id: 2,
     user: {
       name: "CryptoHunter",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/lone-hunter.png",
       rank: "emerald",
     },
     content: "$SOL technical analysis shows a bullish divergence on the 4h chart. Target: $150 by end of month.",
@@ -38,7 +38,7 @@ const posts = [
     id: 3,
     user: {
       name: "TokenWhale",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/majestic-whale.png",
       rank: "diamond",
     },
     content: "$PEPE volume increasing significantly in the last 24h. Meme season might be back sooner than expected.",
@@ -52,7 +52,7 @@ const posts = [
     id: 4,
     user: {
       name: "AlphaSeeker",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/placeholder-ti0xj.png",
       rank: "sapphire",
     },
     content: "$ARB fundamentals remain strong despite market volatility. Layer 2 solutions are the future.",
@@ -66,7 +66,7 @@ const posts = [
     id: 5,
     user: {
       name: "GemFinder",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/sparkling-gem.png",
       rank: "amethyst",
     },
     content: "$LINK oracle dominance continues to grow. New partnerships announced this week are bullish.",

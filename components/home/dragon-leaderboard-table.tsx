@@ -8,7 +8,7 @@ import { ArrowUpDown } from "lucide-react"
 const users = [
   {
     name: "0xDragon",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/majestic-dragon.png",
     gems: 2450,
     rank: "diamond",
     posts: 342,
@@ -16,7 +16,7 @@ const users = [
   },
   {
     name: "CryptoHunter",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/lone-hunter.png",
     gems: 1820,
     rank: "ruby",
     posts: 256,
@@ -24,7 +24,7 @@ const users = [
   },
   {
     name: "TokenWhale",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/majestic-whale.png",
     gems: 1650,
     rank: "ruby",
     posts: 198,
@@ -32,7 +32,7 @@ const users = [
   },
   {
     name: "AlphaSeeker",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/placeholder-ti0xj.png",
     gems: 980,
     rank: "emerald",
     posts: 124,
@@ -40,7 +40,7 @@ const users = [
   },
   {
     name: "GemFinder",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/sparkling-gem.png",
     gems: 720,
     rank: "emerald",
     posts: 87,

@@ -29,7 +29,7 @@ export default function ProfilePage() {
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-shrink-0">
               <Avatar className="h-24 w-24 md:h-32 md:w-32">
-                <AvatarImage src="/placeholder-user.jpg" alt="User" />
+                <AvatarImage src="/majestic-dragon.png" alt="User" />
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>
             </div>

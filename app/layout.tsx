@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ibmPlexSans.className} bg-black text-white min-h-screen flex flex-col`}>
+      <body className={`${ibmPlexSans.className} bg-near-black text-off-white min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           <div className="flex flex-1">

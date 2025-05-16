@@ -20,7 +20,7 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isEarnOpen, setIsEarnOpen] = useState(false)
   const [isConnected, setIsConnected] = useState(false)
-  const [gemPoints, setGemPoints] = useState(13)
+  const [gemPoints, setGemPoints] = useState(1325)
 
   const handleConnect = () => {
     setIsConnected(true)
@@ -31,38 +31,52 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-deep-indigo bg-dark-blue-grey backdrop-blur supports-[backdrop-filter]:bg-dark-blue-grey/90">
       <div className="container flex h-16 items-center">
-        <Link href="/" className="flex items-center gap-2 mr-4">
-          <div className="relative h-8 w-8 sm:h-10 sm:w-10">
-            <Image src="/images/TG-logo-v02.png" alt="TokenGems Logo" fill className="object-contain" priority />
-          </div>
-          <span className="text-xl font-bold hidden sm:inline-block">TokenGems</span>
-        </Link>
+        <div className="flex items-center gap-6 flex-1">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="relative h-8 w-8 sm:h-10 sm:w-10">
+              <Image
+                src="/abstract-geometric-tg.png"
+                alt="TokenGems Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+                priority
+              />
+            </div>
+            <span className="text-xl font-bold hidden sm:inline-block text-off-white">TokenGems</span>
+          </Link>
 
-        <div
-          className="flex items-center h-9 w-full max-w-sm rounded-md border border-input bg-background px-3 text-sm ring-offset-background cursor-pointer mx-auto"
-          onClick={() => setIsSearchOpen(true)}
-        >
-          <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-          <span className="text-muted-foreground">Search for tokens, categories, pools and users</span>
+          <div
+            className="flex items-center h-9 w-full max-w-sm rounded-md border border-deep-indigo bg-near-black px-3 text-sm ring-offset-background cursor-pointer"
+            onClick={() => setIsSearchOpen(true)}
+          >
+            <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+            <span className="text-muted-foreground">Search for tokens, categories, pools and users</span>
+          </div>
         </div>
 
-        <nav className="ml-auto flex items-center gap-4">
+        <nav className="flex items-center gap-4 ml-auto">
           <Link
             href="https://docs.bitbond.com/asset-tokenization-suite/tokengems/intro-tokengems"
             target="_blank"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-bright-cyan"
           >
             Docs
           </Link>
 
-          <Button variant="outline" className="relative flex items-center gap-2" onClick={() => setIsEarnOpen(true)}>
-            <div className="h-5 w-5 rotate-45 bg-primary-green rounded-sm flex items-center justify-center">
-              <div className="h-3 w-3 rotate-45 bg-background rounded-sm"></div>
+          <Button
+            variant="outline"
+            className="relative flex items-center gap-2 border-medium-blue hover:bg-medium-blue/10"
+            onClick={() => setIsEarnOpen(true)}
+          >
+            <span className="font-medium">Earn</span>
+            <div className="h-5 w-5 rotate-45 bg-[#E0115F] rounded-sm flex items-center justify-center">
+              <div className="h-3 w-3 rotate-45 bg-near-black rounded-sm"></div>
             </div>
-            <span className="font-medium">EARN</span>
-            {gemPoints > 0 && <span className="font-bold">{gemPoints}</span>}
+            <span className="font-bold">1,325</span>
+            <span className="text-xs text-muted-foreground">GEMs</span>
           </Button>
 
           {isConnected ? (
@@ -70,17 +84,17 @@ export default function Navbar() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-9 w-9 rounded-full">
                   <Avatar className="h-9 w-9">
-                    <AvatarImage src="/placeholder-user.jpg" alt="User" />
+                    <AvatarImage src="/abstract-geometric-shapes.png" alt="User" />
                     <AvatarFallback>U</AvatarFallback>
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="bg-dark-blue-grey border-deep-indigo">
                 <DropdownMenuItem asChild>
                   <Link href="/profile">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <span className="text-sm font-medium">Rank: Amethyst</span>
+                  <span className="text-sm font-medium">Rank: Ruby</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <span className="text-sm font-medium">0 Notifications</span>

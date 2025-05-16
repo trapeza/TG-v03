@@ -4,40 +4,40 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 250 45% 8%;
+    --foreground: 240 100% 97%;
 
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 100%;
+    --card: 250 40% 17%;
+    --card-foreground: 240 100% 97%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 250 40% 17%;
+    --popover-foreground: 240 100% 97%;
 
-    --primary: 162 93% 63%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 255 100% 50%;
+    --primary-foreground: 240 100% 97%;
 
-    --secondary: 217 100% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 195 100% 50%;
+    --secondary-foreground: 240 100% 97%;
 
-    --accent: 162 93% 63%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 250 45% 8%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 250 35% 17%;
+    --muted-foreground: 240 20% 80%;
 
     --destructive: 0 100% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 240 100% 97%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 162 93% 63%;
+    --border: 250 30% 25%;
+    --input: 250 30% 25%;
+    --ring: 195 100% 50%;
 
     --radius: 0.5rem;
 
-    --chart-1: 162 93% 63%;
-    --chart-2: 217 100% 50%;
-    --chart-3: 32 100% 55%;
-    --chart-4: 270 75% 60%;
+    --chart-1: 180 100% 50%;
+    --chart-2: 255 100% 50%;
+    --chart-3: 260 65% 54%;
+    --chart-4: 195 100% 50%;
     --chart-5: 0 100% 50%;
   }
 }
@@ -52,16 +52,16 @@
 }
 
 .text-primary-orange {
-  color: #fb8b1e;
+  color: #00ffff;
 }
 
 .gradient-button {
-  background: linear-gradient(90deg, #4af6c3 0%, #0068ff 100%);
+  background: linear-gradient(90deg, #00b2ff 0%, #5d3fd3 100%);
   transition: all 0.3s ease;
 }
 
 .gradient-button:hover {
-  background: linear-gradient(90deg, #0068ff 0%, #4af6c3 100%);
+  background: linear-gradient(90deg, #5d3fd3 0%, #00b2ff 100%);
 }
 
 .gem-animation {

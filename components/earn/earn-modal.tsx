@@ -35,12 +35,17 @@ export default function EarnModal({ isOpen, onClose, gemPoints, setGemPoints }: 
     }
   }, [isOpen])
 
+  // Format number with commas
+  const formatNumber = (num: number) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px] p-6 gap-6 bg-background border-border">
         <DialogHeader className="flex flex-row items-center justify-between p-0 space-y-0">
           <DialogTitle className="text-xl font-bold flex items-center">
-            <Diamond className="h-6 w-6 mr-2 text-primary-green" />
+            <Diamond className="h-6 w-6 mr-2 text-[#E0115F]" />
             Earn GEMs
           </DialogTitle>
           <Button variant="ghost" size="icon" onClick={onClose}>
@@ -54,13 +59,13 @@ export default function EarnModal({ isOpen, onClose, gemPoints, setGemPoints }: 
             <div>
               <h3 className="font-medium">Your GEMs</h3>
               <p className="text-2xl font-bold text-primary-green">
-                {gemPoints}
+                {formatNumber(gemPoints)}
                 {animation && <span className="ml-2 inline-block gem-animation">+{streak}</span>}
               </p>
             </div>
             <div>
               <h3 className="font-medium text-right">Your Rank</h3>
-              <p className="text-lg font-medium text-purple-400">Amethyst</p>
+              <p className="text-lg font-medium text-[#E0115F]">Ruby</p>
             </div>
           </div>
 
@@ -104,7 +109,7 @@ export default function EarnModal({ isOpen, onClose, gemPoints, setGemPoints }: 
                 <span className="font-medium text-primary-green">1 GEM</span>
               </li>
               <li className="flex justify-between">
-                <span>Upvote, downvote or repost</span>
+                <span>Each upvote, downvote or repost your posts receive</span>
                 <span className="font-medium text-primary-green">1 GEM</span>
               </li>
               <li className="flex justify-between">
@@ -119,10 +124,10 @@ export default function EarnModal({ isOpen, onClose, gemPoints, setGemPoints }: 
           </div>
 
           <div className="pt-4 border-t">
-            <h3 className="font-medium mb-2">Progress to Sapphire Rank</h3>
-            <Progress value={30} className="h-2" />
+            <h3 className="font-medium mb-2">Progress to Diamond Rank</h3>
+            <Progress value={75} className="h-2" />
             <p className="text-xs text-muted-foreground mt-2">
-              Connect your email and set a custom username to reach Sapphire rank.
+              You need 2,500 GEMs to reach Diamond rank. Keep posting and earning!
             </p>
           </div>
         </div>

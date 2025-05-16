@@ -40,21 +40,27 @@ export default function TokenCategoriesTable() {
     <div className="overflow-auto max-h-[300px]">
       <Table className="text-xs">
         <TableHeader>
-          <TableRow className="hover:bg-transparent">
-            <TableHead className="w-[80px] py-2 px-1">Category</TableHead>
-            <TableHead className="text-right cursor-pointer py-2 px-1" onClick={() => handleSort("marketCap")}>
+          <TableRow className="hover:bg-transparent border-deep-indigo">
+            <TableHead className="w-[80px] py-2 px-1 text-medium-blue">Category</TableHead>
+            <TableHead
+              className="text-right cursor-pointer py-2 px-1 text-medium-blue"
+              onClick={() => handleSort("marketCap")}
+            >
               <div className="flex items-center justify-end">
                 <span>MC (B)</span>
                 <ArrowUpDown className="ml-1 h-3 w-3" />
               </div>
             </TableHead>
-            <TableHead className="text-right cursor-pointer py-2 px-1" onClick={() => handleSort("tokens")}>
+            <TableHead
+              className="text-right cursor-pointer py-2 px-1 text-medium-blue"
+              onClick={() => handleSort("tokens")}
+            >
               <div className="flex items-center justify-end">
                 <span>Tokens</span>
                 <ArrowUpDown className="ml-1 h-3 w-3" />
               </div>
             </TableHead>
-            <TableHead className="text-right py-2 px-1">
+            <TableHead className="text-right py-2 px-1 text-medium-blue">
               <div className="flex items-center justify-end">
                 <span>24h %</span>
               </div>
@@ -63,18 +69,18 @@ export default function TokenCategoriesTable() {
         </TableHeader>
         <TableBody>
           {sortedCategories.map((category) => (
-            <TableRow key={category.name} className="hover:bg-transparent">
+            <TableRow key={category.name} className="hover:bg-deep-indigo/10 border-deep-indigo/30">
               <TableCell className="font-medium py-1.5 px-1">{category.name}</TableCell>
               <TableCell className="text-right py-1.5 px-1">{Math.round(category.marketCap)}B</TableCell>
               <TableCell className="text-right py-1.5 px-1">{category.tokens}</TableCell>
               <TableCell className="text-right py-1.5 px-1">
                 <div className="flex items-center justify-end">
                   {category.change > 0 ? (
-                    <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                    <TrendingUp className="mr-1 h-3 w-3 text-bright-cyan" />
                   ) : (
-                    <TrendingDown className="mr-1 h-3 w-3 text-red-500" />
+                    <TrendingDown className="mr-1 h-3 w-3 text-destructive" />
                   )}
-                  <span className={category.change > 0 ? "text-green-500" : "text-red-500"}>
+                  <span className={category.change > 0 ? "text-bright-cyan" : "text-destructive"}>
                     {category.change > 0 ? "+" : ""}
                     {category.change.toFixed(1)}%
                   </span>
