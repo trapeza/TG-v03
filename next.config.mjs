@@ -16,8 +16,6 @@ const nextConfig = {
       },
     ],
   },
-  // Ensure output is static for better compatibility
-  output: 'export',
 };
 
 export default nextConfig;
