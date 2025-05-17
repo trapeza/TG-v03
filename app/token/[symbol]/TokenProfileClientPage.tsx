@@ -38,7 +38,7 @@ import TokenCode from "@/components/token/token-code"
 
 export default function TokenProfileClientPage({ params }: { params: { symbol?: string } }) {
   const [copied, setCopied] = useState(false)
-  const [isWatching, setIsWatching] = useState(false)
+  const [isFollowing, setIsFollowing] = useState(false)
   const [voted, setVoted] = useState<"gem" | "dirt" | null>(null)
 
   // This would normally come from an API call using the symbol parameter
@@ -92,8 +92,8 @@ export default function TokenProfileClientPage({ params }: { params: { symbol?: 
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const handleWatch = () => {
-    setIsWatching(!isWatching)
+  const handleFollow = () => {
+    setIsFollowing(!isFollowing)
   }
 
   const formatNumber = (num: number) => {
@@ -168,9 +168,9 @@ export default function TokenProfileClientPage({ params }: { params: { symbol?: 
                       {copied ? <Check className="h-4 w-4 mr-1" /> : <Copy className="h-4 w-4 mr-1" />}
                       {copied ? "Copied" : "Copy Address"}
                     </Button>
-                    <Button variant="outline" size="sm" onClick={handleWatch}>
-                      <Star className={`h-4 w-4 mr-1 ${isWatching ? "text-primary-green fill-primary-green" : ""}`} />
-                      {isWatching ? "Watching" : "Watch"}
+                    <Button variant="outline" size="sm" onClick={handleFollow}>
+                      <Star className={`h-4 w-4 mr-1 ${isFollowing ? "text-primary-green fill-primary-green" : ""}`} />
+                      {isFollowing ? "Following" : "Follow"}
                     </Button>
                     <Button variant="outline" size="icon">
                       <Share2 className="h-4 w-4" />
