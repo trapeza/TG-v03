@@ -5,8 +5,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
-import { Copy, Settings, Share2, Diamond, Check, ExternalLink } from "lucide-react"
+import { Copy, Settings, Share2, Check, ExternalLink } from "lucide-react"
 import LatestPostsList from "@/components/home/latest-posts-list"
+import { RankIcon } from "@/components/ui/rank-icons"
 
 export default function ProfilePage() {
   const [copied, setCopied] = useState(false)
@@ -21,6 +22,8 @@ export default function ProfilePage() {
   const handleFollow = () => {
     setFollowing(!following)
   }
+
+  const userRank = "amethyst"
 
   return (
     <div className="container py-6 space-y-6">
@@ -59,11 +62,11 @@ export default function ProfilePage() {
 
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center">
-                  <Diamond className="h-5 w-5 mr-2 text-purple-400" />
-                  <span className="font-medium text-purple-400">Amethyst</span>
+                  <RankIcon rank={userRank} size={20} className="mr-2" />
+                  <span className="font-medium capitalize">{userRank}</span>
                 </div>
                 <div className="flex items-center">
-                  <Diamond className="h-5 w-5 mr-2 text-primary-green" />
+                  <RankIcon rank="emerald" size={20} className="mr-2" />
                   <span className="font-medium">13 GEMs earned</span>
                 </div>
                 <Button variant="outline" size="sm" className="ml-auto" onClick={handleFollow}>
@@ -117,7 +120,7 @@ export default function ProfilePage() {
           <Card>
             <CardContent className="p-6">
               <div className="flex flex-col items-center justify-center py-12">
-                <Diamond className="h-12 w-12 text-muted mb-4" />
+                <RankIcon rank="emerald" size={48} className="mb-4" />
                 <h3 className="text-xl font-medium mb-2">No posts yet</h3>
                 <p className="text-muted-foreground text-center max-w-md mb-6">
                   Share your insights about tokens to earn GEMs and build your reputation.
@@ -132,7 +135,7 @@ export default function ProfilePage() {
           <Card>
             <CardContent className="p-6">
               <div className="flex flex-col items-center justify-center py-12">
-                <Diamond className="h-12 w-12 text-muted mb-4" />
+                <RankIcon rank="emerald" size={48} className="mb-4" />
                 <h3 className="text-xl font-medium mb-2">No liked posts yet</h3>
                 <p className="text-muted-foreground text-center max-w-md mb-6">
                   Like posts to save them for later and show appreciation to other analysts.
@@ -152,7 +155,7 @@ export default function ProfilePage() {
           <Card>
             <CardContent className="p-6">
               <div className="flex flex-col items-center justify-center py-12">
-                <Diamond className="h-12 w-12 text-muted mb-4" />
+                <RankIcon rank="emerald" size={48} className="mb-4" />
                 <h3 className="text-xl font-medium mb-2">No followers yet</h3>
                 <p className="text-muted-foreground text-center max-w-md mb-6">
                   Post quality content to attract followers and build your reputation.
@@ -167,7 +170,7 @@ export default function ProfilePage() {
           <Card>
             <CardContent className="p-6">
               <div className="flex flex-col items-center justify-center py-12">
-                <Diamond className="h-12 w-12 text-muted mb-4" />
+                <RankIcon rank="emerald" size={48} className="mb-4" />
                 <h3 className="text-xl font-medium mb-2">Not following anyone yet</h3>
                 <p className="text-muted-foreground text-center max-w-md mb-6">
                   Follow other analysts to see their posts in your feed.

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ThumbsUp, Repeat } from "lucide-react"
 import Link from "next/link"
+import { RankIcon } from "@/components/ui/rank-icons"
 
 const posts = [
   {
@@ -98,23 +99,6 @@ export default function LatestPostsList() {
     }
   }
 
-  const getRankColor = (rank: string) => {
-    switch (rank) {
-      case "diamond":
-        return "text-white"
-      case "ruby":
-        return "text-red-500"
-      case "emerald":
-        return "text-green-500"
-      case "sapphire":
-        return "text-blue-500"
-      case "amethyst":
-        return "text-purple-500"
-      default:
-        return "text-gray-500"
-    }
-  }
-
   const formatContent = (content: string) => {
     return content.split(" ").map((word, index) => {
       if (word.startsWith("$") && word.length > 1) {
@@ -144,9 +128,7 @@ export default function LatestPostsList() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1">
                 <span className="font-medium truncate">{post.user.name}</span>
-                <span className={`text-xs ${getRankColor(post.user.rank)}`}>
-                  {post.user.rank.charAt(0).toUpperCase() + post.user.rank.slice(1)}
-                </span>
+                <RankIcon rank={post.user.rank} size={12} className="flex-shrink-0" />
                 {post.isHolder && (
                   <span className="text-xs bg-primary-green/20 text-primary-green px-1 rounded">Holder</span>
                 )}

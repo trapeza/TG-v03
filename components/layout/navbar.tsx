@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import SearchModal from "@/components/search/search-modal"
 import EarnModal from "@/components/earn/earn-modal"
+import { EarnDiamondIcon } from "@/components/ui/rank-icons"
 
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -76,9 +77,7 @@ export default function Navbar() {
             onClick={() => setIsEarnOpen(true)}
           >
             <span className="font-medium">Earn</span>
-            <div className="h-5 w-5 rotate-45 bg-[#E0115F] rounded-sm flex items-center justify-center">
-              <div className="h-3 w-3 rotate-45 bg-background rounded-sm"></div>
-            </div>
+            <EarnDiamondIcon size={20} />
             <span className="font-bold">1,325</span>
             <span className="text-xs text-muted-foreground">GEMs</span>
           </Button>

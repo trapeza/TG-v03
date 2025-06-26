@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ArrowUpDown } from "lucide-react"
+import { RankIcon } from "@/components/ui/rank-icons"
 
 const users = [
   {
@@ -78,23 +79,6 @@ export default function DragonLeaderboardTable() {
     }
   }
 
-  const getRankColor = (rank: string) => {
-    switch (rank) {
-      case "diamond":
-        return "bg-[#FFFFFF]" // White
-      case "ruby":
-        return "bg-[#E0115F]" // Ruby red
-      case "emerald":
-        return "bg-[#50C878]" // Emerald green
-      case "sapphire":
-        return "bg-[#0F52BA]" // Sapphire blue
-      case "amethyst":
-        return "bg-[#9966CC]" // Amethyst purple
-      default:
-        return "bg-gray-500"
-    }
-  }
-
   const sortedUsers = [...users].sort((a, b) => {
     if (sortBy === "rank") {
       const aValue = getRankValue(a.rank)
@@ -158,10 +142,7 @@ export default function DragonLeaderboardTable() {
               <TableCell className="text-right font-medium text-primary-green py-1.5 px-1">{user.gems}</TableCell>
               <TableCell className="text-right py-1.5 px-1">
                 <div className="flex justify-end">
-                  <div
-                    className={`h-3 w-3 rotate-45 ${getRankColor(user.rank)}`}
-                    title={user.rank.charAt(0).toUpperCase() + user.rank.slice(1)}
-                  />
+                  <RankIcon rank={user.rank} size={16} className="flex-shrink-0" />
                 </div>
               </TableCell>
               <TableCell className="text-right py-1.5 px-1">{user.posts}</TableCell>
