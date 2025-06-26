@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   description:
     "Help investors find profitable token investment opportunities across different stages and asset categories.",
   icons: {
-    icon: "/images/TokenGems-logo.svg",
-    apple: "/images/TokenGems-logo.svg",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   manifest: "/manifest.json",
   themeColor: "#1A1E27",

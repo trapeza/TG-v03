@@ -32,7 +32,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background backdrop-blur supports-[backdrop-filter]:bg-background/90">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center gap-6 flex-1">
+        {/* Logo - Left aligned */}
+        <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
             <div className="relative h-12 w-32 sm:h-14 sm:w-36">
               <img
@@ -46,7 +47,10 @@ export default function Navbar() {
               />
             </div>
           </Link>
+        </div>
 
+        {/* Search Bar - Centered */}
+        <div className="flex-1 flex justify-center px-6">
           <div
             className="flex items-center h-9 w-full max-w-sm rounded-md border border-border bg-background px-3 text-sm ring-offset-background cursor-pointer"
             onClick={() => setIsSearchOpen(true)}
@@ -56,7 +60,8 @@ export default function Navbar() {
           </div>
         </div>
 
-        <nav className="flex items-center gap-4 ml-auto">
+        {/* Navigation - Right aligned */}
+        <nav className="flex items-center gap-4">
           <Link
             href="https://docs.bitbond.com/asset-tokenization-suite/tokengems/intro-tokengems"
             target="_blank"
