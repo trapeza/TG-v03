@@ -4,40 +4,40 @@
 
 @layer base {
   :root {
-    --background: 250 45% 8%;
-    --foreground: 240 100% 97%;
+    --background: 215 15% 15%;
+    --foreground: 0 0% 100%;
 
-    --card: 250 40% 17%;
-    --card-foreground: 240 100% 97%;
+    --card: 215 15% 17%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 250 40% 17%;
-    --popover-foreground: 240 100% 97%;
+    --popover: 215 15% 17%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 255 100% 50%;
-    --primary-foreground: 240 100% 97%;
+    --primary: 213 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 100% 50%;
-    --secondary-foreground: 240 100% 97%;
+    --secondary: 158 100% 40%;
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 180 100% 50%;
-    --accent-foreground: 250 45% 8%;
+    --accent: 75 100% 50%;
+    --accent-foreground: 215 15% 15%;
 
-    --muted: 250 35% 17%;
-    --muted-foreground: 240 20% 80%;
+    --muted: 215 10% 20%;
+    --muted-foreground: 0 0% 70%;
 
     --destructive: 0 100% 50%;
-    --destructive-foreground: 240 100% 97%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 250 30% 25%;
-    --input: 250 30% 25%;
-    --ring: 195 100% 50%;
+    --border: 215 10% 25%;
+    --input: 215 10% 25%;
+    --ring: 213 100% 50%;
 
     --radius: 0.5rem;
 
-    --chart-1: 180 100% 50%;
-    --chart-2: 255 100% 50%;
-    --chart-3: 260 65% 54%;
-    --chart-4: 195 100% 50%;
+    --chart-1: 158 100% 40%;
+    --chart-2: 213 100% 50%;
+    --chart-3: 75 100% 50%;
+    --chart-4: 213 100% 60%;
     --chart-5: 0 100% 50%;
   }
 }
@@ -52,16 +52,16 @@
 }
 
 .text-primary-orange {
-  color: #00ffff;
+  color: #00cc88;
 }
 
 .gradient-button {
-  background: linear-gradient(90deg, #00b2ff 0%, #5d3fd3 100%);
+  background: linear-gradient(90deg, #0077ff 0%, #00cc88 100%);
   transition: all 0.3s ease;
 }
 
 .gradient-button:hover {
-  background: linear-gradient(90deg, #5d3fd3 0%, #00b2ff 100%);
+  background: linear-gradient(90deg, #00cc88 0%, #0077ff 100%);
 }
 
 .gem-animation {

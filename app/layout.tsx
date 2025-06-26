@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description:
     "Help investors find profitable token investment opportunities across different stages and asset categories.",
   icons: {
-    icon: "/images/TG-logo-v02.png",
-    apple: "/images/TG-logo-v02.png",
+    icon: "/images/TokenGems-logo.svg",
+    apple: "/images/TokenGems-logo.svg",
   },
   manifest: "/manifest.json",
-  themeColor: "#0C0A1B",
+  themeColor: "#1A1E27",
     generator: 'v0.dev'
 }
 
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ibmPlexSans.className} bg-near-black text-off-white min-h-screen flex flex-col`}>
+      <body className={`${ibmPlexSans.className} bg-background text-foreground min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           <div className="flex flex-1">

@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div className="container py-4 space-y-6">
       {/* Hero Section */}
-      <section className="text-center py-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-bright-cyan">
+      <section className="text-left py-1 pl-3">
+        <h1 className="text-xl md:text-2xl font-bold text-bright-cyan">
           Find Real Token Alpha – Earn With Your Expertise
         </h1>
       </section>

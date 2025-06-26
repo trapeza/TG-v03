@@ -30,18 +30,25 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-deep-indigo bg-dark-blue-grey backdrop-blur supports-[backdrop-filter]:bg-dark-blue-grey/90">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background backdrop-blur supports-[backdrop-filter]:bg-background/90">
       <div className="container flex h-16 items-center">
         <div className="flex items-center gap-6 flex-1">
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 sm:h-10 sm:w-10">
-              <img src="/images/TG-logo-v02.png" alt="TokenGems Logo" className="object-contain w-full h-full" />
+            <div className="relative h-12 w-32 sm:h-14 sm:w-36">
+              <img
+                src="/images/TokenGems-logo.svg"
+                alt="TokenGems Logo"
+                className="object-contain w-full h-full"
+                onError={(e) => {
+                  // Fallback to old logo if new one fails to load
+                  e.currentTarget.src = "/images/TG-logo-v02.png"
+                }}
+              />
             </div>
-            <span className="text-xl font-bold hidden sm:inline-block text-off-white">TokenGems</span>
           </Link>
 
           <div
-            className="flex items-center h-9 w-full max-w-sm rounded-md border border-deep-indigo bg-near-black px-3 text-sm ring-offset-background cursor-pointer"
+            className="flex items-center h-9 w-full max-w-sm rounded-md border border-border bg-background px-3 text-sm ring-offset-background cursor-pointer"
             onClick={() => setIsSearchOpen(true)}
           >
             <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
@@ -53,19 +60,19 @@ export default function Navbar() {
           <Link
             href="https://docs.bitbond.com/asset-tokenization-suite/tokengems/intro-tokengems"
             target="_blank"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-bright-cyan"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Docs
           </Link>
 
           <Button
             variant="outline"
-            className="relative flex items-center gap-2 border-medium-blue hover:bg-medium-blue/10"
+            className="relative flex items-center gap-2 border-primary hover:bg-primary/10"
             onClick={() => setIsEarnOpen(true)}
           >
             <span className="font-medium">Earn</span>
             <div className="h-5 w-5 rotate-45 bg-[#E0115F] rounded-sm flex items-center justify-center">
-              <div className="h-3 w-3 rotate-45 bg-near-black rounded-sm"></div>
+              <div className="h-3 w-3 rotate-45 bg-background rounded-sm"></div>
             </div>
             <span className="font-bold">1,325</span>
             <span className="text-xs text-muted-foreground">GEMs</span>
@@ -81,7 +88,7 @@ export default function Navbar() {
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-dark-blue-grey border-deep-indigo">
+              <DropdownMenuContent align="end" className="bg-card border-border">
                 <DropdownMenuItem asChild>
                   <Link href="/profile">Profile</Link>
                 </DropdownMenuItem>
